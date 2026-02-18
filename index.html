@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fibrastone | Premium Fiberglass Ürünler</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root { --primary-red: #E53935; --dark-bg: #1a1a1a; --light-bg: #f5f5f5; --text-dark: #2c2c2c; --text-light: #666; --white: #ffffff; }
+        body { font-family: 'Montserrat', sans-serif; line-height: 1.6; color: var(--text-dark); overflow-x: hidden; }
+        nav { position: fixed; top: 0; width: 100%; background: rgba(255,255,255,0.95); backdrop-filter: blur(10px); z-index: 1000; padding: 1rem 5%; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 20px rgba(0,0,0,0.05); }
+        .logo { display: flex; align-items: center; gap: 12px; font-size: 1.5rem; font-weight: 700; color: var(--text-dark); text-decoration: none; }
+        .logo-icon { width: 40px; height: 40px; background: var(--primary-red); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 1.2rem; }
+        .logo-text span { color: var(--primary-red); }
+        .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+        .nav-links a { text-decoration: none; color: var(--text-dark); font-weight: 500; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; transition: color 0.3s; }
+        .nav-links a:hover { color: var(--primary-red); }
+        .hero { height: 100vh; background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%); display: flex; align-items: center; justify-content: center; position: relative; }
+        .hero-content { text-align: center; z-index: 2; padding: 0 5%; max-width: 900px; }
+        .hero-badge { display: inline-block; padding: 0.5rem 1.5rem; background: rgba(229,57,53,0.2); border: 1px solid var(--primary-red); color: var(--primary-red); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 3px; margin-bottom: 2rem; border-radius: 30px; }
+        .hero h1 { font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 700; color: var(--white); margin-bottom: 1.5rem; line-height: 1.1; }
+        .hero h1 span { color: var(--primary-red); }
+        .hero p { font-size: 1.2rem; color: rgba(255,255,255,0.7); margin-bottom: 3rem; font-weight: 300; max-width: 600px; margin-left: auto; margin-right: auto; }
+        .btn { padding: 1rem 2.5rem; text-decoration: none; font-weight: 600; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; border-radius: 3px; transition: all 0.3s; display: inline-block; margin: 0.5rem; }
+        .btn-primary { background: var(--primary-red); color: var(--white); border: 2px solid var(--primary-red); }
+        .btn-primary:hover { background: transparent; color: var(--primary-red); }
+        .btn-secondary { background: transparent; color: var(--white); border: 2px solid rgba(255,255,255,0.3); }
+        .features, .products, .specs, .contact { padding: 6rem 5%; }
+        .features { background: var(--white); }
+        .container { max-width: 1200px; margin: 0 auto; }
+        .section-header { text-align: center; margin-bottom: 4rem; }
+        .section-header h2 { font-size: 2.5rem; font-weight: 700; color: var(--text-dark); margin-bottom: 1rem; }
+        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 3rem; }
+        .feature-card { text-align: center; padding: 2rem; border-radius: 10px; transition: all 0.3s; }
+        .feature-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+        .feature-icon { width: 80px; height: 80px; background: linear-gradient(135deg, var(--primary-red), #ff6b6b); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; font-size: 2rem; color: white; }
+        .products { background: var(--light-bg); }
+        .products-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem; }
+        .product-card { background: var(--white); border-radius: 10px; overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.08); transition: all 0.3s; }
+        .product-card:hover { transform: translateY(-5px); box-shadow: 0 15px 40px rgba(0,0,0,0.15); }
+        .product-image { height: 280px; background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%); display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.3); font-size: 3rem; font-weight: 700; }
+        .product-info { padding: 2rem; }
+        .product-category { color: var(--primary-red); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; font-weight: 600; margin-bottom: 0.5rem; }
+        .product-info h3 { font-size: 1.4rem; margin-bottom: 1rem; }
+        .product-link { color: var(--primary-red); text-decoration: none; font-weight: 600; font-size: 0.9rem; text-transform: uppercase; }
+        .applications { padding: 6rem 5%; background: var(--dark-bg); color: var(--white); }
+        .apps-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+        .app-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; padding: 2.5rem; }
+        .app-number { font-size: 3rem; font-weight: 700; color: var(--primary-red); opacity: 0.3; margin-bottom: 1rem; }
+        .specs-content { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+        .specs-image { background: linear-gradient(135deg, var(--light-bg), #e0e0e0); height: 500px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 5rem; font-weight: 700; color: var(--primary-red); }
+        .specs-list { list-style: none; }
+        .specs-list li { padding: 1.5rem 0; border-bottom: 1px solid #eee; display: flex; justify-content: space-between; }
+        .spec-label { font-weight: 600; display: flex; align-items: center; gap: 1rem; }
+        .spec-label::before { content: '✓'; width: 24px; height: 24px; background: var(--primary-red); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; }
+        .contact { background: var(--light-bg); }
+        .contact-content { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; }
+        .contact-form { background: var(--white); padding: 3rem; border-radius: 10px; box-shadow: 0 10px 40px rgba(0,0,0,0.08); }
+        .form-group { margin-bottom: 1.5rem; }
+        .form-group label { display: block; margin-bottom: 0.5rem; font-weight: 500; font-size: 0.9rem; }
+        .form-group input, .form-group textarea { width: 100%; padding: 1rem; border: 2px solid #eee; border-radius: 5px; font-family: inherit; font-size: 1rem; }
+        .form-group input:focus, .form-group textarea:focus { outline: none; border-color: var(--primary-red); }
+        .submit-btn { width: 100%; padding: 1rem; background: var(--primary-red); color: white; border: none; border-radius: 5px; font-size: 1rem; font-weight: 600; text-transform: uppercase; cursor: pointer; }
+        footer { background: var(--dark-bg); color: var(--white); padding: 4rem 5% 2rem; }
+        .footer-content { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; margin-bottom: 3rem; }
+        .footer-links h4 { margin-bottom: 1.5rem; font-size: 1rem; text-transform: uppercase; letter-spacing: 1px; }
+        .footer-links a { color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.9rem; display: block; margin-bottom: 0.8rem; }
+        .footer-links a:hover { color: var(--primary-red); }
+        .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 2rem; display: flex; justify-content: space-between; color: rgba(255,255,255,0.4); }
+        @media (max-width: 968px) { .nav-links { display: none; } .specs-content, .contact-content { grid-template-columns: 1fr; } .footer-content { grid-template-columns: 1fr 1fr; } }
+        @media (max-width: 600px) { .products-grid { grid-template-columns: 1fr; } .footer-content { grid-template-columns: 1fr; } }
+    </style>
+<base target="_blank">
+</head>
+<body>
+    <nav>
+        <a href="#" class="logo">
+            <div class="logo-icon">F</div>
+            <div class="logo-text">Fibra<span>stone</span></div>
+        </a>
+        <ul class="nav-links">
+            <li><a href="#products">Ürünler</a></li>
+            <li><a href="#applications">Uygulamalar</a></li>
+            <li><a href="#specs">Teknik</a></li>
+            <li><a href="#contact">İletişim</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">Premium Fiberglass</div>
+            <h1>Mimari Estetiği <span>Yeniden Tanımlıyoruz</span></h1>
+            <p>Dayanıklı, hafif ve estetik fiberglass ürünlerle iç ve dış mekanlara değer katıyoruz.</p>
+            <a href="#products" class="btn btn-primary">Ürünleri Keşfet</a>
+            <a href="#contact" class="btn btn-secondary">Bize Ulaşın</a>
+        </div>
+    </section>
+
+    <section class="features">
+        <div class="container">
+            <div class="section-header">
+                <h2>Neden Fibrastone?</h2>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Hafif ve Dayanıklı</h3>
+                    <p>Doğal taşın estetiği, betonun dayanıklılığı, fiberglass'ın hafifliği.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔥</div>
+                    <h3>Yangın Dayanımı</h3>
+                    <p>A1 sınıfı yanmaz malzeme. Maksimum güvenlik standartlarına uygun.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎨</div>
+                    <h3>Sınırsız Tasarım</h3>
+                    <p>Özel formlar, dokular ve renkler. Her projeye özel üretim.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚙️</div>
+                    <h3>Kolay Montaj</h3>
+                    <p>Hafif yapı sayesinde hızlı ve ekonomik uygulama.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="products" id="products">
+        <div class="container">
+            <div class="section-header">
+                <h2>Ürün Kategorileri</h2>
+            </div>
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-image">DU</div>
+                    <div class="product-info">
+                        <div class="product-category">Duvar Panelleri</div>
+                        <h3>3D Duvar Panelleri</h3>
+                        <p>Mekanlara derinlik katan üç boyutlu duvar kaplama çözümleri.</p>
+                        <a href="#contact" class="product-link">Detaylı Bilgi →</a>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">CE</div>
+                    <div class="product-info">
+                        <div class="product-category">Cephe Sistemleri</div>
+                        <h3>Dış Cephe Kaplama</h3>
+                        <p>Hava koşullarına dayanıklı, uzun ömürlü dış cephe çözümleri.</p>
+                        <a href="#contact" class="product-link">Detaylı Bilgi →</a>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">SO</div>
+                    <div class="product-info">
+                        <div class="product-category">Söve ve Profil</div>
+                        <h3>Dekoratif Söveler</h3>
+                        <p>Binalara estetik değer katan söve ve profil sistemleri.</p>
+                        <a href="#contact" class="product-link">Detaylı Bilgi →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="applications" id="applications">
+        <div class="container">
+            <div class="section-header">
+                <h2 style="color: white;">Uygulama Alanları</h2>
+            </div>
+            <div class="apps-grid">
+                <div class="app-card">
+                    <div class="app-number">01</div>
+                    <h3>Otel ve Konaklama</h3>
+                    <p>Lobi ve restoran uygulamalarında lüks dokunuş.</p>
+                </div>
+                <div class="app-card">
+                    <div class="app-number">02</div>
+                    <h3>Ticari Binalar</h3>
+                    <p>AVM ve ofis içleri için profesyonel çözümler.</p>
+                </div>
+                <div class="app-card">
+                    <div class="app-number">03</div>
+                    <h3>Konut Projeleri</h3>
+                    <p>Villa ve apartman iç mekanlarında estetik.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="specs" id="specs">
+        <div class="container">
+            <div class="section-header">
+                <h2>Teknik Özellikler</h2>
+            </div>
+            <div class="specs-content">
+                <div class="specs-image">F</div>
+                <ul class="specs-list">
+                    <li><span class="spec-label">Malzeme</span><span>Fiberglass Reinforced Polyester</span></li>
+                    <li><span class="spec-label">Yangın Sınıfı</span><span>A1 (Yanmaz)</span></li>
+                    <li><span class="spec-label">Yoğunluk</span><span>1.8 - 2.0 g/cm³</span></li>
+                    <li><span class="spec-label">Su Emme</span><span>&lt; %0.5</span></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2>Bize Ulaşın</h2>
+            </div>
+            <div class="contact-content">
+                <div>
+                    <h3>Teklif Alın</h3>
+                    <p>Projeniz için teknik destek ve fiyat teklifi alın.</p>
+                    <p>📍 İstanbul, Türkiye<br>📞 +90 212 XXX XX XX<br>✉️ info@fibrastone.com</p>
+                </div>
+                <form class="contact-form">
+                    <div class="form-group">
+                        <label>Adınız</label>
+                        <input type="text" placeholder="Adınızı girin">
+                    </div>
+                    <div class="form-group">
+                        <label>E-posta</label>
+                        <input type="email" placeholder="ornek@email.com">
+                    </div>
+                    <div class="form-group">
+                        <label>Mesaj</label>
+                        <textarea placeholder="Projeniz hakkında bilgi verin..."></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Gönder</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <a href="#" class="logo" style="color: white;">
+                        <div class="logo-icon">F</div>
+                        <div>Fibra<span>stone</span></div>
+                    </a>
+                    <p style="color: rgba(255,255,255,0.6); margin-top: 1rem;">20 yılı aşkın tecrübemizle fiberglass sektöründe yenilikçi çözümler sunuyoruz.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Ürünler</h4>
+                    <a href="#">Duvar Panelleri</a>
+                    <a href="#">Cephe Sistemleri</a>
+                    <a href="#">Söve ve Profil</a>
+                </div>
+                <div class="footer-links">
+                    <h4>Kurumsal</h4>
+                    <a href="#">Hakkımızda</a>
+                    <a href="#">Referanslar</a>
+                    <a href="#">Katalog</a>
+                </div>
+                <div class="footer-links">
+                    <h4>Destek</h4>
+                    <a href="#">Teknik Dokümanlar</a>
+                    <a href="#">İletişim</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Fibrastone. Tüm hakları saklıdır.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
